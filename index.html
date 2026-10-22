@@ -83,6 +83,12 @@ main.bg-background{background-color:transparent;}
 /* ── Focus visibility ────────────────────────────────────── */
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px;}
 
+/* ── Email copy feedback ─────────────────────────────────── */
+#email-toast{position:fixed;top:calc(6rem + env(safe-area-inset-top,0px));right:1.5rem;z-index:70;max-width:calc(100% - 2rem);width:max-content;padding:.875rem 1.25rem;border:1px solid rgba(var(--accent-rgb),.35);border-radius:1rem;background:#1c1f29;color:var(--text-primary);box-shadow:0 12px 40px rgba(0,0,0,.4);font-size:13px;line-height:1.5;overflow-wrap:anywhere;opacity:0;visibility:hidden;transform:translateY(-12px);transition:opacity .22s ease,transform .22s ease,visibility .22s;pointer-events:none;}
+#email-toast.is-visible{opacity:1;visibility:visible;transform:translateY(0);}
+.clipboard-buffer{position:fixed;top:0;left:0;opacity:0;pointer-events:none;}
+@media(max-width:479px){#email-toast{right:1rem;}}
+
 /* ── Responsive content sizing ───────────────────────────── */
 .project-media > .absolute:last-child{right:.75rem;flex-wrap:wrap;gap:.5rem;}
 .project-media > .absolute:last-child > span{max-width:100%;overflow-wrap:anywhere;}
@@ -118,7 +124,7 @@ main [class*="min-h-[140px]"] > div:first-child{flex-wrap:wrap;gap:.5rem;}
   html{scroll-behavior:auto;}
   #ambient-particles,.hero-nodes{display:none;}
   .js-reveal .reveal{opacity:1;translate:none;transition:none;}
-  .btn.btn,.glass-card,main section [class*="rounded-xl"][class*="bg-surface-container"],.meta-chip,#scroll-top,footer a{transition-duration:.01ms!important;}
+  .btn.btn,.glass-card,main section [class*="rounded-xl"][class*="bg-surface-container"],.meta-chip,#scroll-top,#email-toast,footer a{transition-duration:.01ms!important;}
   *{animation-duration:.01ms!important;animation-iteration-count:1!important;animation-delay:0ms!important;}
 }</style></head><body class="bg-background text-on-surface font-body-md text-body-md min-h-screen selection:bg-primary-container selection:text-on-primary-container" id="top"><div aria-hidden="true" id="ambient-particles"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div><header class="fixed top-0 left-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-surface-container-high/40"><div class="h-20 max-w-7xl mx-auto px-gutter md:px-margin flex items-center justify-between"><div class="flex items-center gap-space-sm"><a class="flex items-center gap-space-sm group" href="#top"><span class="font-headline-md text-headline-sm text-on-surface group-hover:text-primary transition-colors tracking-tight">Saad Tariq</span></a><span class="hidden xl:inline-flex items-center px-space-sm py-0.5 rounded-full bg-secondary-container/30 text-secondary font-label-code text-label-code">Product Management &amp; Leadership</span></div><nav class="hidden lg:flex items-center gap-space-lg" id="desktop-nav"><a aria-current="page" class="transition-colors text-primary font-semibold" data-nav="work" href="#work">Work</a><a class="font-body-md text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-nav="process" href="#process">Process</a><a class="font-body-md text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-nav="experience" href="#experience">Experience</a><a class="font-body-md text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-nav="capabilities" href="#capabilities">Capabilities</a><a class="font-body-md text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-nav="contact" href="#contact">Contact</a></nav><div class="flex items-center gap-space-md"><a class="btn btn-secondary hidden md:inline-flex items-center justify-center px-space-md py-space-xs rounded bg-surface-container-high text-on-surface font-label-caps text-label-caps hover:bg-surface-bright hover:text-on-surface transition-colors tracking-wider uppercase border border-outline-variant/30" download="Saad-Tariq-Resume.pdf" href="assets/resume.pdf">Resume</a><a class="btn btn-primary inline-flex items-center justify-center px-space-md py-space-xs rounded bg-primary-container text-on-primary-container font-label-caps text-label-caps hover:bg-primary hover:text-on-primary transition-colors tracking-wider uppercase shadow-md shadow-primary-container/20" href="#contact">Get in Touch</a><button aria-controls="mobile-menu" aria-expanded="false" aria-label="Open navigation menu" class="lg:hidden flex items-center justify-center w-9 h-9 rounded bg-surface-container-high text-on-surface hover:bg-surface-bright transition-colors" id="mobile-menu-btn" type="button"><span class="material-symbols-outlined text-[20px]" id="mobile-menu-icon">menu</span></button></div></div><div class="hidden lg:hidden border-t border-outline-variant/30 bg-surface/95 backdrop-blur-md" id="mobile-menu"><nav class="max-w-7xl mx-auto px-gutter py-space-md flex flex-col gap-space-xs"><a class="flex items-center justify-between py-2 font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-nav="work" href="#work">Work<span class="material-symbols-outlined text-[18px] text-primary">arrow_outward</span></a><a class="flex items-center justify-between py-2 font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-nav="process" href="#process">Process<span class="material-symbols-outlined text-[18px] text-primary">arrow_outward</span></a><a class="flex items-center justify-between py-2 font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-nav="experience" href="#experience">Experience<span class="material-symbols-outlined text-[18px] text-primary">arrow_outward</span></a><a class="flex items-center justify-between py-2 font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-nav="capabilities" href="#capabilities">Capabilities<span class="material-symbols-outlined text-[18px] text-primary">arrow_outward</span></a><a class="flex items-center justify-between py-2 font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-nav="contact" href="#contact">Contact<span class="material-symbols-outlined text-[18px] text-primary">arrow_outward</span></a></nav></div></header><main class="w-full pt-20 bg-background min-h-screen"><div class="flex flex-col w-full">
 <!-- ========================================== -->
@@ -140,15 +146,14 @@ main [class*="min-h-[140px]"] > div:first-child{flex-wrap:wrap;gap:.5rem;}
 <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
 </span>
 <span class="font-label-caps text-label-caps tracking-widest text-primary uppercase whitespace-nowrap">Senior Product Manager</span>
-<span class="hidden sm:inline text-outline-variant font-label-code text-label-code">|</span>
-<span class="hidden sm:inline font-label-code text-label-code text-on-surface">Available for Leadership &amp; Product Advisory</span>
+
 </div>
 <!-- Main Display Headline -->
 <h1 class="font-display-hero text-display-hero-mobile md:text-display-hero text-on-surface tracking-tight mt-space-xs leading-[1.1]">
           I build digital products from <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-tertiary to-secondary">idea to impact</span>.
         </h1>
 <!-- Executive Narrative Lead -->
-<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl leading-relaxed">I'm a Product Manager with 8+ years of experience across consumer apps, enterprise SaaS, commerce, and AI. I combine product strategy and engineering experience to take products from discovery to launch and growth.</p>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl leading-relaxed">I'm a Product Manager with 8+ years of experience building high-impact digital products across diverse industries—including consumer tech, B2B SaaS, mobile, enterprise platforms, and AI-driven systems. I combine product strategy, engineering depth and hands-on delivery to take ideas from discovery to launch, growth and scale.</p>
 <!-- CTA Cluster -->
 <div class="flex flex-wrap items-center gap-space-md pt-space-xs">
 <a class="btn btn-primary inline-flex items-center justify-center gap-space-xs px-space-lg py-3.5 rounded bg-primary-container text-on-primary-container font-label-caps text-label-caps uppercase tracking-wider font-semibold hover:bg-primary transition-all duration-200 shadow-lg shadow-primary-container/25 hover:shadow-primary/40 group" href="#work">
@@ -178,7 +183,7 @@ main [class*="min-h-[140px]"] > div:first-child{flex-wrap:wrap;gap:.5rem;}
 </span>
 <div class="flex flex-col">
 <span class="font-label-caps text-[10px] uppercase text-primary tracking-widest font-bold">Product Leadership</span>
-<span class="font-label-code text-label-code text-on-surface">Open to Global Roles · Doha, Qatar</span>
+<span class="font-label-code text-label-code text-on-surface">Open to Relocation · Doha, Qatar</span>
 </div>
 </div>
 <span class="material-symbols-outlined text-primary text-[20px]">verified</span>
@@ -216,7 +221,7 @@ main [class*="min-h-[140px]"] > div:first-child{flex-wrap:wrap;gap:.5rem;}
 <div class="my-space-xs">
 <span class="font-metric-numeral text-metric-numeral text-on-surface tracking-tight">30+</span>
 </div>
-<p class="font-body-sm text-body-sm text-on-surface-variant">Cross-Functional Team Members Led</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Cross Functional Team Members Led</p>
 </div>
 </div>
 </div>
@@ -231,7 +236,7 @@ main [class*="min-h-[140px]"] > div:first-child{flex-wrap:wrap;gap:.5rem;}
 <div class="lg:col-span-5 flex flex-col gap-space-md">
 <div class="flex items-center gap-space-xs text-primary font-label-code text-label-code uppercase tracking-wider">
 <span class="material-symbols-outlined text-[16px]">terminal</span>
-<span>Executive Profile</span>
+<span class="">Executive Profile</span>
 </div>
 <h2 class="font-headline-xl text-headline-xl text-on-surface tracking-tight">
             From Engineering to Product Leadership.
@@ -242,10 +247,10 @@ main [class*="min-h-[140px]"] > div:first-child{flex-wrap:wrap;gap:.5rem;}
 <div class="p-space-md rounded-xl bg-surface-container border border-surface-container-high/60 flex flex-col gap-1.5 hover:border-primary/40 transition-colors">
 <div class="flex items-center gap-space-xs text-on-surface font-headline-sm text-[18px]">
 <span class="material-symbols-outlined text-primary text-[20px]">hub</span>
-<span class="font-semibold">Strategy &amp; Engineering</span>
+<span class="font-semibold">The Strategic Dual-Threat</span>
 </div>
 <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
-              Connects technical decisions with business goals, from APIs and AI workflows to customer conversion.
+              Bridges deep technical architecture with commercial viability. Able to interrogate ML pipelines, API designs, and customer conversion funnels with equal authority.
             </p>
 </div>
 <!-- Pillar Card 2 -->
@@ -255,25 +260,29 @@ main [class*="min-h-[140px]"] > div:first-child{flex-wrap:wrap;gap:.5rem;}
 <span class="font-semibold">Outcome-Led Prioritization</span>
 </div>
 <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
-              Turns business goals into focused roadmaps, clear priorities, and measurable outcomes.
+              Ruthlessly focuses on high-leverage business bets. Translates ambiguous executive vision into prioritized roadmaps, measurable OKRs, and continuous delivery loops.
             </p>
 </div>
 <!-- Pillar Card 3 -->
 <div class="p-space-md rounded-xl bg-surface-container border border-surface-container-high/60 flex flex-col gap-1.5 hover:border-secondary/40 transition-colors">
 <div class="flex items-center gap-space-xs text-on-surface font-headline-sm text-[18px]">
 <span class="material-symbols-outlined text-secondary text-[20px]">groups</span>
-<span class="font-semibold">Cross-Functional Leadership</span>
+<span class="font-semibold">Cross-Functional Multiplier</span>
 </div>
 <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
-              Aligns engineering, design, data, and commercial teams around shared goals and clear delivery plans.
+              Unites engineering, design, data, and commercial stakeholders around a singular product truth—eliminating silos and accelerating team velocity.
             </p>
 </div>
 </div>
 </div>
 <!-- Right: Narrative & Specialization Chips -->
 <div class="lg:col-span-7 flex flex-col gap-space-lg">
-<div class="flex flex-col gap-space-md text-on-surface-variant font-body-lg text-body-lg leading-relaxed"><p>I started in software engineering before moving into product management. That foundation helps me connect customer needs, business goals, and technical decisions.</p><p>I've led products across marketplaces, enterprise SaaS, commerce, health, agriculture, and AI—working with teams from discovery through delivery and growth.</p><p class="text-on-surface font-medium">My focus is practical: understand the problem, agree on priorities, and measure what improves for customers and the business.</p></div>
-
+<div class="flex flex-col gap-space-md text-on-surface-variant font-body-lg text-body-lg leading-relaxed"><p class="">I started my career in software engineering, where I learned how digital products are actually built from the ground up. Over time, I moved from writing code to understanding customer problems, shaping commercial product strategy, and leading high-velocity multidisciplinary teams.</p><p class="">Today, my work spans consumer mobile apps, enterprise SaaS, B2B platforms, e-commerce, health/agritech, and AI solutions. I thrive in understanding diverse domain complexities—translating ambiguous industry challenges into scalable, commercially viable digital products.</p><p class="text-on-surface font-medium">What sets me apart is the balance of sharp product discovery and deep technical literacy. I'm equally comfortable discussing unit economics and business models with executives, customer journeys with designers, system architecture with engineers, and funnels with growth teams.</p></div>
+<!-- Specialization Badges -->
+<div class="flex flex-col gap-space-xs pt-space-xs">
+<span class="font-label-caps text-label-caps uppercase text-on-surface-variant tracking-wider">Core Domains of Practice</span>
+<div class="flex flex-wrap gap-2 pt-1"><span class="px-space-sm py-1.5 rounded-full bg-secondary-container/20 text-secondary font-label-code text-label-code">Product Strategy &amp; Discovery</span><span class="px-space-sm py-1.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-code text-label-code">Enterprise SaaS &amp; B2B</span><span class="px-space-sm py-1.5 rounded-full bg-primary-container/20 text-primary font-label-code text-label-code">Consumer Apps &amp; Mobile</span><span class="px-space-sm py-1.5 rounded-full bg-secondary-container/20 text-secondary font-label-code text-label-code">E-Commerce &amp; Marketplaces</span><span class="px-space-sm py-1.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-code text-label-code">Data Products &amp; Analytics</span><span class="px-space-sm py-1.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-code text-label-code">0-to-1 Product Development</span><span class="px-space-sm py-1.5 rounded-full bg-primary-container/20 text-primary font-label-code text-label-code">AI &amp; Workflow Automation</span><span class="px-space-sm py-1.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-code text-label-code">Technical Product Management</span></div>
+</div>
 </div>
 </div>
 </div>
@@ -292,7 +301,7 @@ main [class*="min-h-[140px]"] > div:first-child{flex-wrap:wrap;gap:.5rem;}
 </div>
 <span class="font-label-code text-label-code text-on-surface-variant">Direct Leadership &amp; Global Client Products</span>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-gutter"><div class="p-space-md rounded-xl bg-surface-container/60 hover:bg-surface-container transition-colors flex flex-col justify-between min-h-[140px] group border border-surface-container-high/40"><div class="flex items-center justify-between"><span class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">Digital Marketplaces</span><span class="px-2 py-0.5 rounded bg-primary-container/20 text-primary font-label-code text-label-code">Qatar Living</span></div><p class="font-body-sm text-body-sm text-on-surface-variant">Autos, Real Estate, Jobs &amp; Classifieds portal operating at 30M monthly page views.</p></div><div class="p-space-md rounded-xl bg-surface-container/60 hover:bg-surface-container transition-colors flex flex-col justify-between min-h-[140px] group border border-surface-container-high/40"><div class="flex items-center justify-between"><span class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">Enterprise SaaS &amp; B2B</span><span class="px-2 py-0.5 rounded bg-primary-container/20 text-primary font-label-code text-label-code">Folio3 &amp; DiscoveriTech</span></div><p class="font-body-sm text-body-sm text-on-surface-variant">Multi-tenant cloud architectures, operational ERP integrations, and workflow platforms.</p></div><div class="p-space-md rounded-xl bg-surface-container/60 hover:bg-surface-container transition-colors flex flex-col justify-between min-h-[140px] group border border-surface-container-high/40"><div class="flex items-center justify-between"><span class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">AgriTech &amp; Global Health</span><span class="px-2 py-0.5 rounded bg-secondary-container/20 text-secondary font-label-code text-label-code">GALVmed · Gates Fdn</span></div><p class="font-body-sm text-body-sm text-on-surface-variant">Livestock health decision tool reducing research time from 2 weeks to 60 minutes.</p></div><div class="p-space-md rounded-xl bg-surface-container/60 hover:bg-surface-container transition-colors flex flex-col justify-between min-h-[140px] group border border-surface-container-high/40"><div class="flex items-center justify-between"><span class="font-headline-sm text-headline-sm text-on-surface group-hover:text-secondary transition-colors">Consumer Tech &amp; Mobile</span><span class="px-2 py-0.5 rounded bg-secondary-container/20 text-secondary font-label-code text-label-code">WoofTrax</span></div><p class="font-body-sm text-body-sm text-on-surface-variant">Fitness and charity app with 1M+ downloads, GPS tracking, rewards, and community features.</p></div><div class="p-space-md rounded-xl bg-surface-container/60 hover:bg-surface-container transition-colors flex flex-col justify-between min-h-[140px] group border border-surface-container-high/40"><div class="flex items-center justify-between"><span class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">IoT &amp; Telematics</span><span class="px-2 py-0.5 rounded bg-primary-container/20 text-primary font-label-code text-label-code">Vytelle</span></div><p class="font-body-sm text-body-sm text-on-surface-variant">Interconnected livestock genetics hardware, lab LIMS workflows, and Dynamics 365 sync.</p></div><div class="p-space-md rounded-xl bg-surface-container/60 hover:bg-surface-container transition-colors flex flex-col justify-between min-h-[140px] group border border-surface-container-high/40"><div class="flex items-center justify-between"><span class="font-headline-sm text-headline-sm text-on-surface group-hover:text-secondary transition-colors">E-Commerce &amp; Retail</span><span class="px-2 py-0.5 rounded bg-secondary-container/20 text-secondary font-label-code text-label-code">QL Deals</span></div><p class="font-body-sm text-body-sm text-on-surface-variant">0-to-1 merchant commerce vertical, voucher settlement, digital payments, and POS redemption.</p></div><div class="p-space-md rounded-xl bg-surface-container/60 hover:bg-surface-container transition-colors flex flex-col justify-between min-h-[140px] group border border-surface-container-high/40"><div class="flex items-center justify-between"><span class="font-headline-sm text-headline-sm text-on-surface group-hover:text-tertiary transition-colors">Supply Chain &amp; Quality</span><span class="px-2 py-0.5 rounded bg-secondary-container/20 text-secondary font-label-code text-label-code">Progressive Beef</span></div><p class="font-body-sm text-body-sm text-on-surface-variant">Commercial beef compliance verification and quality assurance audit application.</p></div><div class="p-space-md rounded-xl bg-surface-container/60 hover:bg-surface-container transition-colors flex flex-col justify-between min-h-[140px] group border border-surface-container-high/40"><div class="flex items-center justify-between"><span class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">AI &amp; Automation</span><span class="px-2 py-0.5 rounded bg-primary-container/20 text-primary font-label-code text-label-code">AI Moderation Engine</span></div><p class="font-body-sm text-body-sm text-on-surface-variant">Multimodal LLM-powered content safety platform reducing manual moderation volume by 80%.</p></div></div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-gutter"><div class="p-space-md rounded-xl bg-surface-container/60 hover:bg-surface-container transition-colors flex flex-col justify-between min-h-[140px] group border border-surface-container-high/40"><div class="flex items-center justify-between"><span class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">Digital Marketplaces</span><span class="px-2 py-0.5 rounded bg-primary-container/20 text-primary font-label-code text-label-code">Qatar Living</span></div><p class="font-body-sm text-body-sm text-on-surface-variant">Autos, Real Estate, Jobs &amp; Classifieds portal operating at 30M monthly page views.</p></div><div class="p-space-md rounded-xl bg-surface-container/60 hover:bg-surface-container transition-colors flex flex-col justify-between min-h-[140px] group border border-surface-container-high/40"><div class="flex items-center justify-between"><span class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">Enterprise SaaS &amp; B2B</span><span class="px-2 py-0.5 rounded bg-primary-container/20 text-primary font-label-code text-label-code">Folio3 &amp; DiscoveriTech</span></div><p class="font-body-sm text-body-sm text-on-surface-variant">Multi-tenant cloud architectures, operational ERP integrations, and workflow platforms.</p></div><div class="p-space-md rounded-xl bg-surface-container/60 hover:bg-surface-container transition-colors flex flex-col justify-between min-h-[140px] group border border-surface-container-high/40"><div class="flex items-center justify-between"><span class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">AgriTech &amp; Global Health</span><span class="px-2 py-0.5 rounded bg-secondary-container/20 text-secondary font-label-code text-label-code">Gates Foundation</span></div><p class="font-body-sm text-body-sm text-on-surface-variant">Data visualization &amp; epidemiological decision tool compressing research from 2 weeks to 60 mins.</p></div><div class="p-space-md rounded-xl bg-surface-container/60 hover:bg-surface-container transition-colors flex flex-col justify-between min-h-[140px] group border border-surface-container-high/40"><div class="flex items-center justify-between"><span class="font-headline-sm text-headline-sm text-on-surface group-hover:text-secondary transition-colors">Consumer Tech &amp; Mobile</span><span class="px-2 py-0.5 rounded bg-secondary-container/20 text-secondary font-label-code text-label-code">WoofTrax</span></div><p class="font-body-sm text-body-sm text-on-surface-variant">1M+ download fitness &amp; charity app with GPS tracking, gamified rewards, and social loops.</p></div><div class="p-space-md rounded-xl bg-surface-container/60 hover:bg-surface-container transition-colors flex flex-col justify-between min-h-[140px] group border border-surface-container-high/40"><div class="flex items-center justify-between"><span class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">IoT &amp; Telematics</span><span class="px-2 py-0.5 rounded bg-primary-container/20 text-primary font-label-code text-label-code">Vytelle</span></div><p class="font-body-sm text-body-sm text-on-surface-variant">Interconnected livestock genetics hardware, lab LIMS workflows, and Dynamics 365 sync.</p></div><div class="p-space-md rounded-xl bg-surface-container/60 hover:bg-surface-container transition-colors flex flex-col justify-between min-h-[140px] group border border-surface-container-high/40"><div class="flex items-center justify-between"><span class="font-headline-sm text-headline-sm text-on-surface group-hover:text-secondary transition-colors">E-Commerce &amp; Retail</span><span class="px-2 py-0.5 rounded bg-secondary-container/20 text-secondary font-label-code text-label-code">QL Deals</span></div><p class="font-body-sm text-body-sm text-on-surface-variant">0-to-1 merchant commerce vertical, voucher settlement, digital payments, and POS redemption.</p></div><div class="p-space-md rounded-xl bg-surface-container/60 hover:bg-surface-container transition-colors flex flex-col justify-between min-h-[140px] group border border-surface-container-high/40"><div class="flex items-center justify-between"><span class="font-headline-sm text-headline-sm text-on-surface group-hover:text-tertiary transition-colors">Supply Chain &amp; Quality</span><span class="px-2 py-0.5 rounded bg-secondary-container/20 text-secondary font-label-code text-label-code">Progressive Beef</span></div><p class="font-body-sm text-body-sm text-on-surface-variant">Commercial beef compliance verification and quality assurance audit application.</p></div><div class="p-space-md rounded-xl bg-surface-container/60 hover:bg-surface-container transition-colors flex flex-col justify-between min-h-[140px] group border border-surface-container-high/40"><div class="flex items-center justify-between"><span class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">AI &amp; Automation</span><span class="px-2 py-0.5 rounded bg-primary-container/20 text-primary font-label-code text-label-code">AI Moderation Engine</span></div><p class="font-body-sm text-body-sm text-on-surface-variant">Multimodal LLM-powered content safety platform reducing manual moderation volume by 80%.</p></div></div>
 </div>
 </section>
 <!-- ========================================== -->
@@ -353,7 +362,7 @@ main [class*="min-h-[140px]"] > div:first-child{flex-wrap:wrap;gap:.5rem;}
 <span class="material-symbols-outlined text-primary text-[20px]">bolt</span>
 </div>
 <div class="my-space-xs">
-<span class="font-headline-lg text-headline-lg font-bold text-on-surface tracking-tight">2 Wks → 60 min</span>
+<span class="font-headline-lg text-headline-lg font-bold text-on-surface tracking-tight">2 weeks → 60 mins</span>
 </div>
 <p class="font-body-sm text-body-sm text-on-surface-variant pt-space-xs">
             Reduction in complex market research analysis turnaround through the GALVmed digital decision engine.
@@ -402,21 +411,21 @@ main [class*="min-h-[140px]"] > div:first-child{flex-wrap:wrap;gap:.5rem;}
               Rebuilding Qatar's Leading Digital Marketplace
             </h3>
 <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-              Led Qatar Living's website and mobile app relaunch across its business verticals, coordinating discovery, UX, engineering, data migration, and launch.
+              Led the modernization and relaunch of Qatar Living's website and mobile apps across multiple business verticals, bringing together product discovery, UX improvements, engineering, data migration, integrations and launch coordination.
             </p>
 <!-- Highlights Checklist -->
 <ul class="flex flex-col gap-1.5 text-on-surface-variant font-body-sm text-body-sm">
 <li class="flex items-center gap-space-xs">
 <span class="material-symbols-outlined text-primary text-[16px]">check_circle</span>
-<span>Scaled to 1M+ monthly users and 22M to 30M monthly page views</span>
+<span class="">Scaled to 1M+ monthly users and 22M to 30M monthly page views</span>
 </li>
 <li class="flex items-center gap-space-xs">
 <span class="material-symbols-outlined text-primary text-[16px]">check_circle</span>
-<span>Modernized legacy codebase across web, iOS, and Android ecosystems</span>
+<span class="">Modernized legacy codebase across web, iOS, and Android ecosystems</span>
 </li>
 <li class="flex items-center gap-space-xs">
 <span class="material-symbols-outlined text-primary text-[16px]">check_circle</span>
-<span>Coordinated cross-vertical data migration and real-time commerce integrations</span>
+<span class="">Coordinated cross-vertical data migration and real-time commerce integrations</span>
 </li>
 </ul>
 </div>
@@ -424,8 +433,8 @@ main [class*="min-h-[140px]"] > div:first-child{flex-wrap:wrap;gap:.5rem;}
 <span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-code text-label-code">Marketplace</span>
 <span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-code text-label-code">Product Strategy</span>
 <span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-code text-label-code">Mobile Apps</span>
-
-
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-code text-label-code">Growth</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-code text-label-code">Platform Modernization</span>
 </div>
 </article>
 <!-- Project 02: AI Moderation Platform -->
@@ -447,20 +456,20 @@ main [class*="min-h-[140px]"] > div:first-child{flex-wrap:wrap;gap:.5rem;}
               Automating Marketplace Moderation with AI
             </h3>
 <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-              Defined the strategy and workflows for an AI moderation platform, including configurable rules, model evaluation, and fallbacks. Shifted moderators toward exception handling and oversight.
+              Developed the product strategy and functional workflows for an AI moderation platform using multimodal language models, configurable rules, evaluation processes and model fallback mechanisms. Shifted moderation teams toward exception handling and operational oversight.
             </p>
 <ul class="flex flex-col gap-1.5 text-on-surface-variant font-body-sm text-body-sm">
 <li class="flex items-center gap-space-xs">
 <span class="material-symbols-outlined text-secondary text-[16px]">check_circle</span>
-<span>80% reduction in manual content and listing review workload</span>
+<span class="">80% reduction in manual content and listing review workload</span>
 </li>
 <li class="flex items-center gap-space-xs">
 <span class="material-symbols-outlined text-secondary text-[16px]">check_circle</span>
-<span>Implemented multimodal image and Arabic/English text classification</span>
+<span class="">Implemented multimodal image and Arabic/English text classification</span>
 </li>
 <li class="flex items-center gap-space-xs">
 <span class="material-symbols-outlined text-secondary text-[16px]">check_circle</span>
-<span>Configured active monitoring, safety thresholds and human-in-the-loop fallback</span>
+<span class="">Configured active monitoring, safety thresholds and human-in-the-loop fallback</span>
 </li>
 </ul>
 </div>
@@ -468,7 +477,7 @@ main [class*="min-h-[140px]"] > div:first-child{flex-wrap:wrap;gap:.5rem;}
 <span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-code text-label-code">Artificial Intelligence</span>
 <span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-code text-label-code">LLMs</span>
 <span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-code text-label-code">Workflow Automation</span>
-
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-code text-label-code">Product Operations</span>
 </div>
 </article>
 <!-- Project 03: Qatar Living Deals & Rewards -->
@@ -490,20 +499,20 @@ main [class*="min-h-[140px]"] > div:first-child{flex-wrap:wrap;gap:.5rem;}
               Creating a New Commerce Business Within a Marketplace
             </h3>
 <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-              Launched Qatar Living Deals, connecting consumers with dining, shopping, and experience offers. Led shopper journeys, merchant onboarding, approvals, rewards, and go-to-market coordination.
+              Took Qatar Living Deals from concept to launch as a new commerce vertical connecting consumers with merchant offers across dining, shopping and experiences. Spanned shopper journeys, merchant onboarding, approvals, licensing, gamified rewards and GTM coordination.
             </p>
 <ul class="flex flex-col gap-1.5 text-on-surface-variant font-body-sm text-body-sm">
 <li class="flex items-center gap-space-xs">
 <span class="material-symbols-outlined text-tertiary text-[16px]">check_circle</span>
-<span>Launched a new revenue stream for Qatar Living</span>
+<span class="">Uncapped a brand-new commercial transaction stream for Qatar Living</span>
 </li>
 <li class="flex items-center gap-space-xs">
 <span class="material-symbols-outlined text-tertiary text-[16px]">check_circle</span>
-<span>Designed self-serve merchant onboarding, payout, and verification engine</span>
+<span class="">Designed self-serve merchant onboarding, payout, and verification engine</span>
 </li>
 <li class="flex items-center gap-space-xs">
 <span class="material-symbols-outlined text-tertiary text-[16px]">check_circle</span>
-<span>Integrated gamified loyalty tiers and redemption mechanics across mobile apps</span>
+<span class="">Integrated gamified loyalty tiers and redemption mechanics across mobile apps</span>
 </li>
 </ul>
 </div>
@@ -511,8 +520,8 @@ main [class*="min-h-[140px]"] > div:first-child{flex-wrap:wrap;gap:.5rem;}
 <span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-code text-label-code">0-to-1</span>
 <span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-code text-label-code">Product Strategy</span>
 <span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-code text-label-code">Commerce</span>
-
-
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-code text-label-code">Gamification</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-code text-label-code">Monetization</span>
 </div>
 </article>
 <!-- Project 04: GALVmed Market Assessment Platform -->
@@ -526,28 +535,28 @@ main [class*="min-h-[140px]"] > div:first-child{flex-wrap:wrap;gap:.5rem;}
 <img class="w-full h-full object-cover transition-transform duration-500" loading="lazy" alt="Complex geospatial livestock disease density map and epidemiological data analytics dashboard on dark background, showing sub-Saharan Africa and South Asia distribution metrics, supported by clean data tables and interactive filters." src="assets/project-04.jpg"/>
 <div class="absolute inset-0 bg-gradient-to-t from-surface-container via-surface-container/30 to-transparent"></div>
 <div class="absolute bottom-3 left-3 flex gap-2">
-<span class="px-2 py-0.5 rounded bg-surface/90 text-primary font-label-code text-label-code">Bill &amp; Melinda Gates Foundation</span>
-<span class="px-2 py-0.5 rounded bg-surface/90 text-on-surface font-label-code text-label-code">2 Wks → 60 Mins</span>
+<span class="px-2 py-0.5 rounded bg-surface/90 text-primary font-label-code text-label-code">Gates Foundation</span>
+<span class="px-2 py-0.5 rounded bg-surface/90 text-on-surface font-label-code text-label-code">2 weeks → 60 mins</span>
 </div>
 </div>
 <h3 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">
               Turning Complex Market Research into a Digital Decision Tool
             </h3>
 <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-              Led discovery and delivery of a livestock health market assessment platform through Folio3, replacing spreadsheet-heavy research with an interactive decision tool.
+              Led product discovery and delivery of a livestock health market assessment platform through Folio3, transforming spreadsheet-heavy research into a swift, data-driven digital decision experience.
             </p>
 <ul class="flex flex-col gap-1.5 text-on-surface-variant font-body-sm text-body-sm">
 <li class="flex items-center gap-space-xs">
 <span class="material-symbols-outlined text-primary text-[16px]">check_circle</span>
-<span>Analysis turnaround compressed from 2 weeks of manual labor to 60 minutes</span>
+<span class="">Analysis turnaround compressed from 2 weeks of manual labor to 60 mins</span>
 </li>
 <li class="flex items-center gap-space-xs">
 <span class="material-symbols-outlined text-primary text-[16px]">check_circle</span>
-<span>Engineered interactive epidemiological models and regional commercial forecasting</span>
+<span class="">Engineered interactive epidemiological models and regional commercial forecasting</span>
 </li>
 <li class="flex items-center gap-space-xs">
 <span class="material-symbols-outlined text-primary text-[16px]">check_circle</span>
-<span>Synthesized requirements across global health NGOs and international veterinary researchers</span>
+<span class="">Synthesized requirements across global health NGOs and international veterinary researchers</span>
 </li>
 </ul>
 </div>
@@ -555,7 +564,7 @@ main [class*="min-h-[140px]"] > div:first-child{flex-wrap:wrap;gap:.5rem;}
 <span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-code text-label-code">B2B SaaS</span>
 <span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-code text-label-code">AgriTech</span>
 <span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-code text-label-code">Product Discovery</span>
-
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-code text-label-code">Data Products</span>
 </div>
 </article>
 <!-- Project 05: Vytelle Digital Ecosystem -->
@@ -577,20 +586,20 @@ main [class*="min-h-[140px]"] > div:first-child{flex-wrap:wrap;gap:.5rem;}
               Connecting Lab, Field and Financial Operations
             </h3>
 <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-              Led three connected platforms for livestock genetics, linking laboratory workflows, field data, and financial processes through Dynamics 365.
+              Led product work across three interconnected digital platforms supporting livestock genetics operations, laboratory workflows, field data and financial processes with Dynamics 365 integrations.
             </p>
 <ul class="flex flex-col gap-1.5 text-on-surface-variant font-body-sm text-body-sm">
 <li class="flex items-center gap-space-xs">
 <span class="material-symbols-outlined text-secondary text-[16px]">check_circle</span>
-<span>Core laboratory execution workflows reduced from 2 weeks to 1 day</span>
+<span class="">Core laboratory execution workflows reduced from 2 weeks to 1 day</span>
 </li>
 <li class="flex items-center gap-space-xs">
 <span class="material-symbols-outlined text-secondary text-[16px]">check_circle</span>
-<span>Bi-directional real-time telemetry between field hardware, lab LIMS, and ERP</span>
+<span class="">Bi-directional real-time telemetry between field hardware, lab LIMS, and ERP</span>
 </li>
 <li class="flex items-center gap-space-xs">
 <span class="material-symbols-outlined text-secondary text-[16px]">check_circle</span>
-<span>Unified tracking across biological sample lifecycles and customer billing</span>
+<span class="">Unified tracking across biological sample lifecycles and customer billing</span>
 </li>
 </ul>
 </div>
@@ -598,8 +607,8 @@ main [class*="min-h-[140px]"] > div:first-child{flex-wrap:wrap;gap:.5rem;}
 <span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-code text-label-code">Enterprise SaaS</span>
 <span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-code text-label-code">IoT</span>
 <span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-code text-label-code">Product Management</span>
-
-
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-code text-label-code">Integrations</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-code text-label-code">Workflow Optimization</span>
 </div>
 </article>
 <!-- Project 06: WoofTrax -->
@@ -621,20 +630,20 @@ main [class*="min-h-[140px]"] > div:first-child{flex-wrap:wrap;gap:.5rem;}
               Making Dog Walks More Engaging and Rewarding
             </h3>
 <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-              Led improvements to an app that turns dog walks into support for animal shelters, adding social sharing, achievements, referrals, and community features.
+              Led product improvements for a consumer mobile application converting dog walking activity into support for animal shelters. Relaunch included social sharing, achievements, referrals and community participation.
             </p>
 <ul class="flex flex-col gap-1.5 text-on-surface-variant font-body-sm text-body-sm">
 <li class="flex items-center gap-space-xs">
 <span class="material-symbols-outlined text-primary text-[16px]">check_circle</span>
-<span>Expanded community reach beyond 1M+ consumer mobile app downloads</span>
+<span class="">Expanded community reach beyond 1M+ consumer mobile app downloads</span>
 </li>
 <li class="flex items-center gap-space-xs">
 <span class="material-symbols-outlined text-primary text-[16px]">check_circle</span>
-<span>Introduced challenge mechanics, milestone badges, and streak motivators</span>
+<span class="">Introduced challenge mechanics, milestone badges, and streak motivators</span>
 </li>
 <li class="flex items-center gap-space-xs">
 <span class="material-symbols-outlined text-primary text-[16px]">check_circle</span>
-<span>Elevated viral loops with social impact cards and local shelter affiliations</span>
+<span class="">Elevated viral loops with social impact cards and local shelter affiliations</span>
 </li>
 </ul>
 </div>
@@ -642,8 +651,8 @@ main [class*="min-h-[140px]"] > div:first-child{flex-wrap:wrap;gap:.5rem;}
 <span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-code text-label-code">Consumer Apps</span>
 <span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-code text-label-code">Mobile Products</span>
 <span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-code text-label-code">Gamification</span>
-
-
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-code text-label-code">Engagement</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-code text-label-code">Growth</span>
 </div>
 </article>
 </div>
@@ -660,7 +669,7 @@ main [class*="min-h-[140px]"] > div:first-child{flex-wrap:wrap;gap:.5rem;}
           How I Lead Products
         </h2>
 <p class="font-body-md text-body-md text-on-surface-variant">
-          A clear process for turning customer problems into products and predictable delivery.
+          A disciplined, end-to-end framework translating ambiguities into scalable, repeatable software velocity.
         </p>
 </div>
 <!-- 4-Stage Interactive Pipeline -->
@@ -674,15 +683,15 @@ main [class*="min-h-[140px]"] > div:first-child{flex-wrap:wrap;gap:.5rem;}
 </div>
 <h3 class="font-headline-sm text-headline-sm text-on-surface">Discover the Problem</h3>
 <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
-              Understand customer needs, business goals, and constraints before deciding what to build.
+              Understand customer needs, business objectives, user behavior, market opportunities and constraints before deciding what to build.
             </p>
 </div>
 <div class="pt-space-md flex flex-wrap gap-1.5 border-t border-surface-container-high/40">
 <span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-label-code text-label-code">User Research</span>
 <span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-label-code text-label-code">Market Analysis</span>
 <span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-label-code text-label-code">Customer Journeys</span>
-
-
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-label-code text-label-code">Analytics</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-label-code text-label-code">Problem Definition</span>
 </div>
 </div>
 <!-- Stage 02 -->
@@ -694,16 +703,16 @@ main [class*="min-h-[140px]"] > div:first-child{flex-wrap:wrap;gap:.5rem;}
 </div>
 <h3 class="font-headline-sm text-headline-sm text-on-surface">Shape the Strategy</h3>
 <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
-              Set product direction, prioritize opportunities, and define requirements and success measures.
+              Translate insights into product direction, prioritize opportunities, define requirements and establish measurable success criteria.
             </p>
 </div>
 <div class="pt-space-md flex flex-wrap gap-1.5 border-t border-surface-container-high/40">
 <span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-label-code text-label-code">Product Roadmaps</span>
 <span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-label-code text-label-code">Prioritization</span>
 <span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-label-code text-label-code">PRDs</span>
-
-
-
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-label-code text-label-code">Business Cases</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-label-code text-label-code">KPIs</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-label-code text-label-code">Prototyping</span>
 </div>
 </div>
 <!-- Stage 03 -->
@@ -715,15 +724,15 @@ main [class*="min-h-[140px]"] > div:first-child{flex-wrap:wrap;gap:.5rem;}
 </div>
 <h3 class="font-headline-sm text-headline-sm text-on-surface">Build and Deliver</h3>
 <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
-              Work with design and engineering to validate ideas, coordinate delivery, and launch.
+              Collaborate closely with design and engineering, validate ideas, coordinate stakeholders and guide products from development through launch.
             </p>
 </div>
 <div class="pt-space-md flex flex-wrap gap-1.5 border-t border-surface-container-high/40">
 <span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-label-code text-label-code">Agile Delivery</span>
 <span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-label-code text-label-code">Leadership</span>
 <span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-label-code text-label-code">UAT</span>
-
-
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-label-code text-label-code">Release Planning</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-label-code text-label-code">Engineering Alignment</span>
 </div>
 </div>
 <!-- Stage 04 -->
@@ -735,15 +744,15 @@ main [class*="min-h-[140px]"] > div:first-child{flex-wrap:wrap;gap:.5rem;}
 </div>
 <h3 class="font-headline-sm text-headline-sm text-on-surface">Measure and Grow</h3>
 <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
-              Use feedback, experiments, and data to improve adoption, retention, and business outcomes.
+              Use customer feedback, experimentation and performance data to improve adoption, engagement, retention and commercial outcomes.
             </p>
 </div>
 <div class="pt-space-md flex flex-wrap gap-1.5 border-t border-surface-container-high/40">
 <span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-label-code text-label-code">Product Analytics</span>
 <span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-label-code text-label-code">Funnel Analysis</span>
 <span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-label-code text-label-code">Experimentation</span>
-
-
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-label-code text-label-code">Growth</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-label-code text-label-code">Monetization</span>
 </div>
 </div>
 </div>
@@ -864,7 +873,7 @@ main [class*="min-h-[140px]"] > div:first-child{flex-wrap:wrap;gap:.5rem;}
           Capabilities &amp; Core Competencies
         </h2>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter"><div class="p-space-lg rounded-xl bg-surface-container flex flex-col justify-between hover:bg-surface-container-high transition-colors border border-surface-container-high/40"><div class="flex flex-col gap-space-sm"><span class="material-symbols-outlined text-primary text-[28px]">explore</span><h3 class="font-headline-sm text-headline-sm text-on-surface">Product Strategy &amp; Discovery</h3><p class="font-body-sm text-body-sm text-on-surface-variant">Define customer problems, shape roadmaps, test product-market fit, and align teams around measurable goals.</p></div><div class="flex flex-wrap gap-1.5 pt-space-md border-t border-surface-container-high/40"><span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-label-code text-label-code">Product Strategy</span><span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-label-code text-label-code">Market Discovery</span><span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-label-code text-label-code">Roadmapping</span></div></div><div class="p-space-lg rounded-xl bg-surface-container flex flex-col justify-between hover:bg-surface-container-high transition-colors border border-surface-container-high/40"><div class="flex flex-col gap-space-sm"><span class="material-symbols-outlined text-tertiary text-[28px]">trending_up</span><h3 class="font-headline-sm text-headline-sm text-on-surface">Consumer Experience &amp; Growth</h3><p class="font-body-sm text-body-sm text-on-surface-variant">Improve customer journeys, onboarding, rewards, and referrals to increase engagement and retention.</p></div><div class="flex flex-wrap gap-1.5 pt-space-md border-t border-surface-container-high/40"><span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-label-code text-label-code">Customer Journeys</span><span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-label-code text-label-code">Gamification</span><span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-label-code text-label-code">Funnel Conversion</span></div></div><div class="p-space-lg rounded-xl bg-surface-container flex flex-col justify-between hover:bg-surface-container-high transition-colors border border-surface-container-high/40"><div class="flex flex-col gap-space-sm"><span class="material-symbols-outlined text-secondary text-[28px]">domain</span><h3 class="font-headline-sm text-headline-sm text-on-surface">Enterprise SaaS &amp; B2B Workflows</h3><p class="font-body-sm text-body-sm text-on-surface-variant">Define enterprise workflows, permissions, integrations, and requirements for multi-tenant platforms.</p></div><div class="flex flex-wrap gap-1.5 pt-space-md border-t border-surface-container-high/40"><span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-label-code text-label-code">Enterprise SaaS</span><span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-label-code text-label-code">B2B Workflows</span><span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-label-code text-label-code">Integrations</span></div></div><div class="p-space-lg rounded-xl bg-surface-container flex flex-col justify-between hover:bg-surface-container-high transition-colors border border-surface-container-high/40"><div class="flex flex-col gap-space-sm"><span class="material-symbols-outlined text-primary text-[28px]">terminal</span><h3 class="font-headline-sm text-headline-sm text-on-surface">Technical &amp; Data Product Management</h3><p class="font-body-sm text-body-sm text-on-surface-variant">Work with engineers on APIs, data models, migrations, connected-device data, and prototypes.</p></div><div class="flex flex-wrap gap-1.5 pt-space-md border-t border-surface-container-high/40"><span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-label-code text-label-code">APIs</span><span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-label-code text-label-code">Data Pipelines</span><span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-label-code text-label-code">SQL &amp; Schema</span></div></div><div class="p-space-lg rounded-xl bg-surface-container flex flex-col justify-between hover:bg-surface-container-high transition-colors border border-surface-container-high/40"><div class="flex flex-col gap-space-sm"><span class="material-symbols-outlined text-secondary text-[28px]">psychology</span><h3 class="font-headline-sm text-headline-sm text-on-surface">Intelligent Systems &amp; Modern Tech</h3><p class="font-body-sm text-body-sm text-on-surface-variant">Apply generative AI and automated classification to practical problems with measurable business value.</p></div><div class="flex flex-wrap gap-1.5 pt-space-md border-t border-surface-container-high/40"><span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-label-code text-label-code">Generative AI</span><span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-label-code text-label-code">LLM Pipelines</span><span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-label-code text-label-code">Workflow Automation</span></div></div><div class="p-space-lg rounded-xl bg-surface-container flex flex-col justify-between hover:bg-surface-container-high transition-colors border border-surface-container-high/40"><div class="flex flex-col gap-space-sm"><span class="material-symbols-outlined text-primary text-[28px]">groups_3</span><h3 class="font-headline-sm text-headline-sm text-on-surface">Agile Delivery &amp; Team Leadership</h3><p class="font-body-sm text-body-sm text-on-surface-variant">Lead cross-functional teams through clear priorities, Agile delivery, stakeholder alignment, and vendor coordination.</p></div><div class="flex flex-wrap gap-1.5 pt-space-md border-t border-surface-container-high/40"><span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-label-code text-label-code">Agile &amp; Scrum</span><span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-label-code text-label-code">Team Leadership</span><span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-label-code text-label-code">Program Governance</span></div></div></div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter"><div class="p-space-lg rounded-xl bg-surface-container flex flex-col justify-between hover:bg-surface-container-high transition-colors border border-surface-container-high/40"><div class="flex flex-col gap-space-sm"><span class="material-symbols-outlined text-primary text-[28px]">explore</span><h3 class="font-headline-sm text-headline-sm text-on-surface">Product Strategy &amp; Discovery</h3><p class="font-body-sm text-body-sm text-on-surface-variant">Framing high-stakes problem statements, shaping strategic roadmaps, identifying product-market fit across new verticals, and aligning stakeholders around quantifiable KPIs.</p></div><div class="flex flex-wrap gap-1.5 pt-space-md border-t border-surface-container-high/40"><span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-label-code text-label-code">Product Strategy</span><span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-label-code text-label-code">Market Discovery</span><span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-label-code text-label-code">Roadmapping</span><span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-label-code text-label-code">Prioritization</span><span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-label-code text-label-code">Business Cases</span></div></div><div class="p-space-lg rounded-xl bg-surface-container flex flex-col justify-between hover:bg-surface-container-high transition-colors border border-surface-container-high/40"><div class="flex flex-col gap-space-sm"><span class="material-symbols-outlined text-tertiary text-[28px]">trending_up</span><h3 class="font-headline-sm text-headline-sm text-on-surface">Consumer Experience &amp; Growth</h3><p class="font-body-sm text-body-sm text-on-surface-variant">Optimizing holistic user journeys, collaborating with UX teams, designing viral loops, gamified rewards, and eliminating onboarding drop-offs to drive engagement and retention.</p></div><div class="flex flex-wrap gap-1.5 pt-space-md border-t border-surface-container-high/40"><span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-label-code text-label-code">Customer Journeys</span><span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-label-code text-label-code">Gamification</span><span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-label-code text-label-code">Funnel Conversion</span><span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-label-code text-label-code">Retention</span><span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-label-code text-label-code">A/B Testing</span></div></div><div class="p-space-lg rounded-xl bg-surface-container flex flex-col justify-between hover:bg-surface-container-high transition-colors border border-surface-container-high/40"><div class="flex flex-col gap-space-sm"><span class="material-symbols-outlined text-secondary text-[28px]">domain</span><h3 class="font-headline-sm text-headline-sm text-on-surface">Enterprise SaaS &amp; B2B Workflows</h3><p class="font-body-sm text-body-sm text-on-surface-variant">Designing multi-tenant architectures, mission-critical operational tools, complex permissions, ERP integrations, and multi-stakeholder enterprise workflows.</p></div><div class="flex flex-wrap gap-1.5 pt-space-md border-t border-surface-container-high/40"><span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-label-code text-label-code">Enterprise SaaS</span><span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-label-code text-label-code">B2B Workflows</span><span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-label-code text-label-code">Integrations</span><span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-label-code text-label-code">ERP Sync</span><span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-label-code text-label-code">Audit Compliance</span></div></div><div class="p-space-lg rounded-xl bg-surface-container flex flex-col justify-between hover:bg-surface-container-high transition-colors border border-surface-container-high/40"><div class="flex flex-col gap-space-sm"><span class="material-symbols-outlined text-primary text-[28px]">terminal</span><h3 class="font-headline-sm text-headline-sm text-on-surface">Technical &amp; Data Product Management</h3><p class="font-body-sm text-body-sm text-on-surface-variant">Rigorous engineering collaboration, API and schema design, SQL data querying, database migrations, telematics data pipelines, and fast prototype validation.</p></div><div class="flex flex-wrap gap-1.5 pt-space-md border-t border-surface-container-high/40"><span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-label-code text-label-code">APIs</span><span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-label-code text-label-code">Data Pipelines</span><span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-label-code text-label-code">SQL &amp; Schema</span><span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-label-code text-label-code">IoT Telemetry</span><span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-label-code text-label-code">Architecture</span></div></div><div class="p-space-lg rounded-xl bg-surface-container flex flex-col justify-between hover:bg-surface-container-high transition-colors border border-surface-container-high/40"><div class="flex flex-col gap-space-sm"><span class="material-symbols-outlined text-secondary text-[28px]">psychology</span><h3 class="font-headline-sm text-headline-sm text-on-surface">Intelligent Systems &amp; Modern Tech</h3><p class="font-body-sm text-body-sm text-on-surface-variant">Leveraging generative AI, multimodal LLMs, automated classification, and modern tech stacks pragmatically where they create measurable business leverage.</p></div><div class="flex flex-wrap gap-1.5 pt-space-md border-t border-surface-container-high/40"><span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-label-code text-label-code">Generative AI</span><span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-label-code text-label-code">LLM Pipelines</span><span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-label-code text-label-code">Workflow Automation</span><span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-label-code text-label-code">Human-in-the-Loop</span></div></div><div class="p-space-lg rounded-xl bg-surface-container flex flex-col justify-between hover:bg-surface-container-high transition-colors border border-surface-container-high/40"><div class="flex flex-col gap-space-sm"><span class="material-symbols-outlined text-primary text-[28px]">groups_3</span><h3 class="font-headline-sm text-headline-sm text-on-surface">Agile Delivery &amp; Team Leadership</h3><p class="font-body-sm text-body-sm text-on-surface-variant">Empowering cross-functional squads through structured Agile/Scrum operations, stakeholder governance, vendor coordination, and predictable delivery cadences.</p></div><div class="flex flex-wrap gap-1.5 pt-space-md border-t border-surface-container-high/40"><span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-label-code text-label-code">Agile &amp; Scrum</span><span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-label-code text-label-code">Team Leadership</span><span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-label-code text-label-code">Program Governance</span><span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-label-code text-label-code">Vendor Management</span></div></div></div>
 </div>
 </section>
 <!-- ========================================== -->
@@ -1020,17 +1029,17 @@ main [class*="min-h-[140px]"] > div:first-child{flex-wrap:wrap;gap:.5rem;}
 <div class="absolute inset-0 bg-gradient-to-t from-primary/5 via-transparent to-transparent pointer-events-none"></div>
 <div class="max-w-4xl mx-auto px-gutter md:px-margin text-center relative z-10 flex flex-col items-center gap-space-md">
 <div class="inline-flex items-center gap-space-xs px-space-md py-1.5 rounded-full bg-surface-container-high border border-outline-variant/30">
-<span class="material-symbols-outlined text-primary text-[16px]">location_on</span>
-<span class="font-label-code text-label-code text-on-surface">Doha, Qatar · Open to international opportunities and relocation</span>
+<span aria-hidden="true" class="material-symbols-outlined text-primary text-[16px]">public</span>
+<span class="font-label-code text-label-code text-on-surface">Doha, Qatar · Open to Relocation</span>
 </div>
 <h2 class="font-display-hero text-display-hero-mobile md:text-display-hero text-on-surface tracking-tight">
         Let's build something <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-tertiary">that matters</span>.
       </h2>
 <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl leading-relaxed">
-        Building a new product, growing a platform, or exploring practical AI? I'd love to discuss how I can help.
+        I'm always interested in meaningful product challenges, ambitious teams and opportunities to build products that create real value. Whether you're building a new product, scaling an existing platform or exploring practical AI applications, I'd love to connect.
       </p>
 <div class="flex flex-wrap items-center justify-center gap-space-md pt-space-sm">
-<a class="btn btn-primary inline-flex items-center justify-center gap-space-xs px-space-lg py-3.5 rounded bg-primary-container text-on-primary-container font-label-caps text-label-caps uppercase tracking-wider font-semibold hover:bg-primary transition-all duration-200 shadow-xl shadow-primary-container/20" href="mailto:iamsaadtariq@gmail.com">
+<a class="btn btn-primary inline-flex items-center justify-center gap-space-xs px-space-lg py-3.5 rounded bg-primary-container text-on-primary-container font-label-caps text-label-caps uppercase tracking-wider font-semibold hover:bg-primary transition-all duration-200 shadow-xl shadow-primary-container/20" href="mailto:msaadtariq93@gmail.com" data-copy-email="msaadtariq93@gmail.com">
 <span class="material-symbols-outlined text-[18px]">mail</span>
 <span>Email Me</span>
 </a>
@@ -1045,7 +1054,7 @@ main [class*="min-h-[140px]"] > div:first-child{flex-wrap:wrap;gap:.5rem;}
 </div>
 </div>
 </section>
-</div></main><footer class="w-full bg-surface-container-lowest border-t border-surface-container-high/40"><div class="max-w-7xl mx-auto px-gutter md:px-margin py-space-xl flex flex-col gap-space-xl"><div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-start"><div class="md:col-span-6 flex flex-col gap-space-sm"><div class="flex items-center gap-space-sm"><span class="font-headline-md text-headline-sm text-on-surface">Saad Tariq</span><span class="inline-flex items-center px-space-sm py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-code text-label-code">Product Leadership</span></div><p class="font-body-md text-body-sm text-on-surface-variant max-w-lg">Senior Product Manager combining product strategy, engineering experience, and hands-on delivery across consumer and enterprise platforms.</p></div><div class="md:col-span-3 flex flex-col gap-space-sm"><span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Location &amp; Status</span><p class="font-body-md text-body-sm text-on-surface flex items-center gap-space-xs"><span class="material-symbols-outlined text-primary text-[16px]">location_on</span>Doha, Qatar</p><p class="font-label-code text-label-code text-tertiary">Open to international opportunities</p></div><div class="md:col-span-3 flex flex-col gap-space-sm"><span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Connect</span><div class="flex flex-col gap-space-xs"><a class="font-body-md text-body-sm text-on-surface-variant hover:text-primary transition-colors flex items-center gap-space-xs" href="https://www.linkedin.com/in/iamsaadtariq/" rel="noopener noreferrer" target="_blank"><span class="material-symbols-outlined text-[16px]">open_in_new</span>LinkedIn</a><a class="font-body-md text-body-sm text-on-surface-variant hover:text-primary transition-colors flex items-center gap-space-xs" href="mailto:iamsaadtariq@gmail.com"><span class="material-symbols-outlined text-[16px]">mail</span>Email</a></div></div></div><div class="flex flex-col sm:flex-row items-center justify-between gap-space-md pt-space-lg text-on-surface-variant font-body-sm text-body-sm border-t border-surface-container-high/30"><p>© 2026 Saad Tariq. All rights reserved.</p><div class="flex items-center gap-space-md"><a class="hover:text-on-surface transition-colors" href="#work">Portfolio Index</a><span class="text-outline-variant">•</span><a class="hover:text-on-surface transition-colors" download="Saad-Tariq-Resume.pdf" href="assets/resume.pdf">Curriculum Vitae</a></div></div></div></footer><button aria-label="Scroll back to top" id="scroll-top" type="button"><span aria-hidden="true" class="material-symbols-outlined text-[20px]">arrow_upward</span></button><script>
+</div></main><footer class="w-full bg-surface-container-lowest border-t border-surface-container-high/40"><div class="max-w-7xl mx-auto px-gutter md:px-margin py-space-xl flex flex-col gap-space-xl"><div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-start"><div class="md:col-span-6 flex flex-col gap-space-sm"><div class="flex items-center gap-space-sm"><span class="font-headline-md text-headline-sm text-on-surface">Saad Tariq</span><span class="inline-flex items-center px-space-sm py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-code text-label-code">Product Leadership</span></div><p class="font-body-md text-body-sm text-on-surface-variant max-w-lg">Senior Product Manager building digital platforms across consumer tech, enterprise SaaS, B2B workflows, e-commerce, and intelligent systems. Combining product strategy, engineering depth, and commercial execution.</p></div><div class="md:col-span-3 flex flex-col gap-space-sm"><span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Location &amp; Status</span><p class="font-body-md text-body-sm text-on-surface flex items-center gap-space-xs"><span class="material-symbols-outlined text-primary text-[16px]">location_on</span>Doha, Qatar</p><p class="font-label-code text-label-code text-tertiary flex items-center gap-2"><span aria-hidden="true" class="material-symbols-outlined text-[16px]">public</span>Open to Relocation</p></div><div class="md:col-span-3 flex flex-col gap-space-sm"><span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Connect</span><div class="flex flex-col gap-space-xs"><a class="font-body-md text-body-sm text-on-surface-variant hover:text-primary transition-colors flex items-center gap-space-xs" href="https://www.linkedin.com/in/iamsaadtariq/" rel="noopener noreferrer" target="_blank"><span class="material-symbols-outlined text-[16px]">open_in_new</span>LinkedIn</a><a class="font-body-md text-body-sm text-on-surface-variant hover:text-primary transition-colors flex items-center gap-space-xs" href="mailto:msaadtariq93@gmail.com" data-copy-email="msaadtariq93@gmail.com"><span class="material-symbols-outlined text-[16px]">mail</span>Email</a></div></div></div><div class="flex flex-col sm:flex-row items-center justify-between gap-space-md pt-space-lg text-on-surface-variant font-body-sm text-body-sm border-t border-surface-container-high/30"><p>© 2026 Saad Tariq. All rights reserved.</p><div class="flex items-center gap-space-md"><a class="hover:text-on-surface transition-colors" href="#work">Portfolio Index</a><span class="text-outline-variant">•</span><a class="hover:text-on-surface transition-colors" download="Saad-Tariq-Resume.pdf" href="assets/resume.pdf">Curriculum Vitae</a></div></div></div></footer><button aria-label="Scroll back to top" id="scroll-top" type="button"><span aria-hidden="true" class="material-symbols-outlined text-[20px]">arrow_upward</span></button><div aria-atomic="true" aria-live="polite" id="email-toast" role="status"></div><script>
     (() => {
       const menuBtn = document.getElementById('mobile-menu-btn');
       const mobileMenu = document.getElementById('mobile-menu');
@@ -1097,6 +1106,90 @@ main [class*="min-h-[140px]"] > div:first-child{flex-wrap:wrap;gap:.5rem;}
       }
 
       const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+      let scrollFrame;
+      const root = document.documentElement;
+      const defaultScrollBehavior = root.style.scrollBehavior;
+      const stopScrolling = () => {
+        cancelAnimationFrame(scrollFrame);
+        root.style.scrollBehavior = defaultScrollBehavior;
+      };
+      const smoothScrollTo = top => {
+        stopScrolling();
+        root.style.scrollBehavior = 'auto';
+        if (prefersReducedMotion.matches) {
+          window.scrollTo(0, top);
+          root.style.scrollBehavior = defaultScrollBehavior;
+          return;
+        }
+        const start = window.scrollY;
+        const startedAt = performance.now();
+        const step = now => {
+          const progress = Math.min(1, (now - startedAt) / 650);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          window.scrollTo(0, Math.round(start + (top - start) * eased));
+          if (progress < 1) scrollFrame = requestAnimationFrame(step);
+          else root.style.scrollBehavior = defaultScrollBehavior;
+        };
+        scrollFrame = requestAnimationFrame(step);
+      };
+      window.addEventListener('wheel', stopScrolling, { passive: true });
+      window.addEventListener('touchstart', stopScrolling, { passive: true });
+      document.querySelectorAll('a[href^="#"]').forEach(link => {
+        link.addEventListener('click', event => {
+          if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+          const hash = link.getAttribute('href');
+          const target = document.getElementById(hash.slice(1));
+          if (!target) return;
+          event.preventDefault();
+          const offset = parseFloat(getComputedStyle(target).scrollMarginTop) || 0;
+          const top = Math.max(0, target.getBoundingClientRect().top + window.scrollY - offset);
+          if (location.hash !== hash) history.pushState(null, '', hash);
+          smoothScrollTo(top);
+        });
+      });
+
+      const toast = document.getElementById('email-toast');
+      let toastTimer;
+      const showToast = message => {
+        clearTimeout(toastTimer);
+        toast.textContent = message;
+        toast.classList.add('is-visible');
+        toastTimer = setTimeout(() => toast.classList.remove('is-visible'), 4000);
+      };
+      const copyWithFallback = email => {
+        const previousFocus = document.activeElement;
+        const buffer = document.createElement('textarea');
+        buffer.value = email;
+        buffer.className = 'clipboard-buffer';
+        buffer.readOnly = true;
+        buffer.setAttribute('aria-hidden', 'true');
+        document.body.appendChild(buffer);
+        buffer.select();
+        try {
+          if (!document.execCommand('copy')) throw new Error('Copy unavailable');
+        } finally {
+          buffer.remove();
+          previousFocus?.focus({ preventScroll: true });
+        }
+      };
+      document.querySelectorAll('[data-copy-email]').forEach(link => {
+        link.addEventListener('click', async event => {
+          event.preventDefault();
+          const email = link.dataset.copyEmail;
+          try {
+            try {
+              if (!navigator.clipboard?.writeText) throw new Error('Clipboard unavailable');
+              await navigator.clipboard.writeText(email);
+            } catch {
+              copyWithFallback(email);
+            }
+            showToast(`Address copied: ${email}`);
+          } catch {
+            showToast(`Could not copy. Email: ${email}`);
+          }
+        });
+      });
+
       const revealTargets = Array.from(document.querySelectorAll('main section'));
       revealTargets.forEach(el => el.classList.add('reveal'));
       if (prefersReducedMotion.matches || !('IntersectionObserver' in window)) {
@@ -1127,29 +1220,7 @@ main [class*="min-h-[140px]"] > div:first-child{flex-wrap:wrap;gap:.5rem;}
         const updateScrollTop = () => scrollTopBtn.classList.toggle('is-visible', window.scrollY > 400);
         updateScrollTop();
         window.addEventListener('scroll', updateScrollTop, { passive: true });
-        scrollTopBtn.addEventListener('click', () => {
-          if (prefersReducedMotion.matches) {
-            window.scrollTo(0, 0);
-            return;
-          }
-          const start = window.scrollY;
-          const duration = 650;
-          const startedAt = performance.now();
-          const root = document.documentElement;
-          const previousScrollBehavior = root.style.scrollBehavior;
-          root.style.scrollBehavior = 'auto';
-          const easeOutCubic = progress => 1 - Math.pow(1 - progress, 3);
-          const step = now => {
-            const progress = Math.min(1, (now - startedAt) / duration);
-            window.scrollTo(0, Math.round(start * (1 - easeOutCubic(progress))));
-            if (progress < 1) {
-              requestAnimationFrame(step);
-            } else {
-              root.style.scrollBehavior = previousScrollBehavior;
-            }
-          };
-          requestAnimationFrame(step);
-        });
+        scrollTopBtn.addEventListener('click', () => smoothScrollTo(0));
       }
     })();
   </script></body></html>
