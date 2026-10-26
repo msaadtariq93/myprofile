@@ -1,4 +1,7 @@
 # Applies only when served at the domain root: /robots.txt
+User-agent: LinkedInBot
+Allow: /
+
 User-agent: *
 Disallow: /
 
