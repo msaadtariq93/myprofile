@@ -3,4 +3,3 @@
 @media(max-width:850px){.nav{position:relative}.nav nav{top:100%;left:-20px;right:-20px;max-height:calc(100dvh - 76px);overflow-y:auto;overscroll-behavior:contain}.nav nav a:not(.navbtn){min-height:44px;display:flex;align-items:center}.toggle{min-width:48px;min-height:48px;cursor:pointer}.topline{line-height:1.5}.feature .graphic .network{max-width:100%}.contact-box textarea{resize:vertical}}
 @media(max-width:480px){h1{font-size:clamp(36px,11vw,46px);overflow-wrap:break-word}.section h2,.cta h2{font-size:clamp(32px,9vw,40px)}.hero-copy{padding-top:55px}.pagehero{min-height:0}.contact-box{padding:24px}.contact-details a,.footer-grid a,.cta .textlink{overflow-wrap:anywhere}.button{min-height:48px}.topline a{display:inline-block}.ticker .wrap{gap:12px 20px}}
 @media(max-width:360px){.brand{font-size:18px;gap:8px}.wrap{width:calc(100% - 32px)}.nav nav{left:-16px;right:-16px}.hero p,.pagehero p{font-size:16px}.hero-art{width:430px;right:-140px}}
-
