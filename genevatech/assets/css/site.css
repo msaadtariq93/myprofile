@@ -696,3 +696,11 @@ h1, h2, h3, .acc__title { overflow-wrap: anywhere; hyphens: auto; }
 .fac__photo img { object-fit: cover; object-position: 50% 100%; }
 .header__apply { height: 48px; margin-right: 0; padding: 0 22px; border-radius: 999px; }
 .plist__head .plist__badge { color: #fff; }
+
+/* Icon and colour clean-up */
+[data-lucide] { display: inline-block; width: 1em; height: 1em; flex: none; }
+svg.lucide { flex: none; }
+.play__ring svg.lucide { fill: currentColor; margin-left: 3px; }
+.mega h6 { color: var(--muted); }
+.cap-grid li::before { color: var(--blue); }
+.sidelinks a:hover, .sidelinks a[aria-current="page"] { color: var(--blue); }

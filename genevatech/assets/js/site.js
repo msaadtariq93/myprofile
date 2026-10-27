@@ -1,6 +1,8 @@
 /* GenevaTech Business School · site behaviour (no dependencies) */
 (function () {
   'use strict';
+  function drawIcons() { if (window.lucide) window.lucide.createIcons({ attrs: { 'stroke-width': 2 } }); }
+  drawIcons();
   /* Films and entrance motion are part of the brand experience (as on gtbs.ch), so they run even when the OS asks for reduced motion; they are muted, slow and decorative. */
   var reduce = false;
   var $ = function (s, c) { return (c || document).querySelector(s); };
@@ -84,7 +86,7 @@
     var m = document.createElement('div');
     m.className = 'modal';
     m.setAttribute('role', 'dialog'); m.setAttribute('aria-modal', 'true'); m.setAttribute('aria-label', label || 'Media');
-    m.innerHTML = '<div class="modal__box ' + cls + '"><button class="modal__close" type="button" aria-label="Close"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>' + html + '</div>';
+    m.innerHTML = '<div class="modal__box ' + cls + '"><button class="modal__close" type="button" aria-label="Close"><i data-lucide="x" width="20" height="20"></i></button>' + html + '</div>';
     document.body.appendChild(m);
     document.body.style.overflow = 'hidden';
     var close = function () { m.remove(); document.body.style.overflow = ''; if (lastFocus) lastFocus.focus(); };
@@ -92,6 +94,7 @@
     m.addEventListener('click', function (e) { if (e.target === m) close(); });
     m.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
     $('.modal__close', m).focus();
+    drawIcons();
   }
   document.addEventListener('click', function (e) {
     var v = e.target.closest('[data-video]');
