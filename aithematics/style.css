@@ -8,3 +8,5 @@
 .owner-hero .eyebrow,.service-hero .eyebrow,.ai-hero .eyebrow,.values .eyebrow,.ai-process .eyebrow{color:#c2d1ff}
 
 .whatsapp-float{position:fixed;bottom:20px;right:20px;z-index:20;display:flex;align-items:center;gap:8px;border-radius:999px;padding:13px 18px;background:#168845;color:white;font-size:13px;font-weight:700;box-shadow:0 5px 24px #0003}.whatsapp-float:hover{background:#116d38}@media(max-width:480px){.whatsapp-float{right:12px;bottom:12px;padding:12px 15px}}
+
+.whatsapp-float{background:#176b4c;color:#fff;padding:12px 17px;gap:9px;font-weight:600;letter-spacing:.01em;box-shadow:0 6px 22px #091d3240}.whatsapp-float:hover{background:#10593d}.whatsapp-float svg{width:21px;height:21px;flex:none}
