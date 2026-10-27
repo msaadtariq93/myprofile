@@ -8,4 +8,3 @@ window.addEventListener('resize', () => { if (window.innerWidth > 850) closeMenu
 document.querySelector('#year').textContent = new Date().getFullYear();
 const form = document.querySelector('#contact-form');
 if (form) form.addEventListener('submit', event => { event.preventDefault(); const name = document.querySelector('#name').value, company = document.querySelector('#company').value, message = document.querySelector('#message').value; const body = 'Name: ' + name + '\nCompany: ' + company + '\n\n' + message; location.href = 'mailto:ammar@aithematics.com?subject=' + encodeURIComponent('Business inquiry: ' + company) + '&body=' + encodeURIComponent(body); });
-
