@@ -706,7 +706,6 @@ h1, h2, h3, .acc__title { overflow-wrap: anywhere; hyphens: auto; }
 .ic { display: inline-block; flex: none; line-height: 1; vertical-align: -0.125em; font-style: normal; }
 .ic-16 { font-size: 16px; } .ic-20 { font-size: 20px; } .ic-28 { font-size: 28px; } .ic-36 { font-size: 36px; }
 .play__ring .ic { margin-left: 3px; }
-.play__ring .ic-28 { font-size: 30px; }
 .quote__mark { font-family: inherit; font-size: inherit; line-height: 1; color: var(--blue-100); }
 .quote__mark .ic { font-size: 56px; }
 .quote__stars { display: inline-flex; gap: 3px; letter-spacing: 0; }
@@ -718,7 +717,4 @@ h1, h2, h3, .acc__title { overflow-wrap: anywhere; hyphens: auto; }
 .plist__icon { width: 44px; height: 44px; }
 .plist__icon .ic, .plist__go .ic { font-size: 20px; }
 .prog__icon { width: 60px; height: 60px; }
-.prog__icon .ic { font-size: 30px; }
-.fcard__icon .ic, .info-card__icon .ic { font-size: 28px; }
-.stat__icon .ic { font-size: 22px; }
-.social a .ic, .person__social a .ic, .fac__in .ic { font-size: 18px; }
+.social a .ic, .person__social a .ic, .fac__in .ic { font-size: 20px; }
